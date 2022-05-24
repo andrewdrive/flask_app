@@ -8,7 +8,6 @@ def ping_pong():
 
 
 @app.route('/')
-@app.route('/index')
 def index():
     user = {'username': 'Miguel'}
     posts = [
@@ -22,6 +21,10 @@ def index():
         }
     ]
     return render_template('index.html', title='Home', user=user, posts=posts)
+
+
+# @app.route('/login')
+# def 
 
 
 
