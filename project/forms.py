@@ -13,4 +13,5 @@ class LoginForm(FlaskForm):
 class PassDataForm(FlaskForm):
     name = StringField('Name')
     surname = StringField('Surname')
+    submit = SubmitField('Save inputs')
 
