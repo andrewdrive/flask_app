@@ -1,10 +1,12 @@
 from flask import (Blueprint,
                    render_template,
                    redirect,
-                   url_for)
+                   url_for,
+                   request,
+                   flash)
 from . import db
 from flask_login import login_required, current_user
-
+from .models import Inputs
 
 main = Blueprint('main', __name__)
 
@@ -24,15 +26,11 @@ def profile():
 @main.route('/inputs', methods=['POST'])
 @login_required
 def inputs():
+    name = request.form.get('name')
+    surname = request.form.get('surname')
+    inp = Inputs(name=name, surname=surname, user_id=current_user.id)
+    db.session.add(inp)
+    db.session.commit()
+    flash('Credits were added in db.')
     return redirect(url_for('main.index'))
 
-
-# if __name__ == "__main__":
-#     app.run(debug=True, host='localhost', port=8000)
-#
-#
-
-# # This func for -c 'flask shell' usage
-# @app.shell_context_processor
-# def make_shell_context():
-#     return {'db': db, 'User': User}

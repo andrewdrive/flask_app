@@ -16,7 +16,7 @@ def create_app():
     CORS(app)
 
     login_manager = LoginManager()
-    login_manager. login_view = 'auth.login'
+    login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
 
     from .models import User
@@ -35,6 +35,3 @@ def create_app():
     app.register_blueprint(main_blueprint)
 
     return app
-
-
-# from project import routes, models

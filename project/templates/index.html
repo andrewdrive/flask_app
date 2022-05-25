@@ -17,8 +17,13 @@ Flask includes many hooks to customize its behavior. Should you need more custom
 <h2 class="subtitle">
   Magic inputs...
 </h2>
-
-
+{% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification is-success">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+{% endwith %}
 <form method="POST" action="/inputs">
             <div class="field">
                 <div class="control">
@@ -28,25 +33,12 @@ Flask includes many hooks to customize its behavior. Should you need more custom
 
             <div class="field">
                 <div class="control">
-                    <input class="input is-large" type="text" surname="password" placeholder="surname">
+                    <input class="input is-large" type="text" name="surname" placeholder="surname">
                 </div>
             </div>
             <button class="button is-block is-info is-large is-fullwidth">Input</button>
 </form>
-
 {% endblock %}
-<!--<form action="" method="post" novalidate>-->
-<!--        {{ form.hidden_tag() }}-->
-<!--        <p>-->
-<!--            {{ form.name.label }}<br>-->
-<!--            {{ form.name(size=32) }}-->
-<!--        </p>-->
-<!--        <p>-->
-<!--            {{ form.surname.label }}<br>-->
-<!--            {{ form.surname(size=32) }}-->
-<!--        </p>-->
 
-<!--        <p>{{ form.submit() }}</p>-->
-<!--    </form>-->
 
 
