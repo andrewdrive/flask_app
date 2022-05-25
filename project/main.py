@@ -1,23 +1,29 @@
-from flask import Blueprint
+from flask import Blueprint, render_template, redirect, url_for
 from . import db
-from project.models import User
-from 
 
 
 main = Blueprint('main', __name__)
 
+
 @main.route('/')
 def index():
-    return 'Index'
+    return render_template('index.html')
 
 
-if __name__ == "__main__":
-
-    app.run(debug=True, host='localhost', port=8000)
-
-
+@main.route('/profile')
+def profile():
+    return render_template('profile.html')
 
 
+@main.route('/inputs', methods=['POST'])
+def inputs():
+    return redirect(url_for('main.index'))
+
+
+# if __name__ == "__main__":
+#     app.run(debug=True, host='localhost', port=8000)
+#
+#
 
 # # This func for -c 'flask shell' usage
 # @app.shell_context_processor

@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2><p>
-        <h1>Foreword</h1>
+<h1>Foreword</h1>
+<h2><p>
 Read this before you get started with Flask. This hopefully answers some questions about the purpose and goals of the project, and when you should or should not be using it.
 What does “micro” mean?
 “Micro” does not mean that your whole web application has to fit into a single Python file (although it certainly can), nor does it mean that Flask is lacking in functionality. The “micro” in microframework means Flask aims to keep the core simple but extensible. Flask won’t make many decisions for you, such as what database to use. Those decisions that it does make, such as what templating engine to use, are easy to change. Everything else is up to you, so that Flask can be everything you need and nothing you don’t.
@@ -14,19 +14,39 @@ Once you have Flask up and running, you’ll find a variety of extensions availa
 As your codebase grows, you are free to make the design decisions appropriate for your project. Flask will continue to provide a very simple glue layer to the best that Python has to offer. You can implement advanced patterns in SQLAlchemy or another database tool, introduce non-relational data persistence as appropriate, and take advantage of framework-agnostic tools built for WSGI, the Python web interface.
 Flask includes many hooks to customize its behavior. Should you need more customization, the Flask class is built for subclassing. If you are curious about the Flask design principles, head over to the section about Design Decisions in Flask.
     </h2></p>
-    <form action="" method="post" novalidate>
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.name.label }}<br>
-            {{ form.name(size=32) }}
-        </p>
-        <p>
-            {{ form.surname.label }}<br>
-            {{ form.surname(size=32) }}
-        </p>
-        
-        <p>{{ form.submit() }}</p>
-    </form>
+<h2 class="subtitle">
+  Magic inputs...
+</h2>
 
+
+<form method="POST" action="/inputs">
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="name" placeholder="name" autofocus="">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" surname="password" placeholder="surname">
+                </div>
+            </div>
+            <button class="button is-block is-info is-large is-fullwidth">Input</button>
+</form>
 
 {% endblock %}
+<!--<form action="" method="post" novalidate>-->
+<!--        {{ form.hidden_tag() }}-->
+<!--        <p>-->
+<!--            {{ form.name.label }}<br>-->
+<!--            {{ form.name(size=32) }}-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            {{ form.surname.label }}<br>-->
+<!--            {{ form.surname(size=32) }}-->
+<!--        </p>-->
+
+<!--        <p>{{ form.submit() }}</p>-->
+<!--    </form>-->
+
+
