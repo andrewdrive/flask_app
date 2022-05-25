@@ -6,6 +6,8 @@
 
 
     $ python -m venv env
+    $ source env/bin/activate
+    $ cd flask_app/
     $ pip install -r requirements.txt
 
 Настройка переменных окружения `env` находясь в директории flask_app/:
