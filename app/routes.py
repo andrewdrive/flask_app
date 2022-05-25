@@ -1,6 +1,7 @@
+from crypt import methods
 from flask import render_template, flash, redirect
 from app import app
-from app.forms import LoginForm
+from app.forms import LoginForm, PassDataForm
 
 
 @app.route('/ping', methods=['GET'])
@@ -32,6 +33,12 @@ def login():
         return redirect('/index')
     return render_template('login.html', title='Sign In', form=form)
 
+
+@app.route('/passdata', methods=['POST'])
+def pass_data():
+    form = PassDataForm()
+    #if form.validate_on_submit():
+    pass
 
 
 
