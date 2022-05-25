@@ -1,4 +1,4 @@
-from app import db
+from project import db
 
 
 class User(db.Model):
@@ -11,10 +11,14 @@ class User(db.Model):
         return '<User {}>'.format(self.username) 
 
 
+# TODO make a migrations for Inputs model
+class Inputs(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64), index=True, unique=True)
+    surname = db.Column(db.String(64))
 
-
-
-
+    def __repr__(self):
+        return '<Inputs (name) - {}; (surname) - {}>'.format(self.name, self.surname)
 
 
 
